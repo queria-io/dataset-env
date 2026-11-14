@@ -1,0 +1,17 @@
+# dbt はプロジェクト名に env を使えない（予約語）ので、プロジェクトとプロファイルは env_dataset、データベースは env にする
+name: "env_dataset"
+version: "1.0.0"
+
+profile: "env_dataset"
+
+model-paths: ["models"]
+macro-paths: ["shared/macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  env_dataset:
+    +database: env
+    +materialized: table
