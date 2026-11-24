@@ -3,8 +3,6 @@ name: Sync
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "*.md"
   schedule:
     # 行政事業レビューの URL の追加と差し替えを取り込む。毎月 13 日 04:00 JST に取る（gov_documents の取り込みより前）
     - cron: "0 19 12 * *"
@@ -20,7 +18,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    uses: queria-io/dataset-shared/.github/workflows/sync.yml@65a70f0ea45bbaebbf9adc0cedd61500ebe242e7
+    uses: queria-io/dataset-shared/.github/workflows/sync.yml@main
     with:
       dataset_name: env
     secrets:
