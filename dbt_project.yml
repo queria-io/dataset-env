@@ -15,3 +15,10 @@ models:
   env_dataset:
     +database: env
     +materialized: table
+    plans:
+      raw:
+        +materialized: table
+      stg:
+        +materialized: ephemeral
+      mart:
+        +materialized: table
